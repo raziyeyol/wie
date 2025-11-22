@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "CCA4F269-8CF8-4A45-B62B-05AEB9EC27EC",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "environmentVariableEntries" : [
+      {
+        "key" : "IDEPreferLogStreaming",
+        "value" : "YES"
+      }
+    ],
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:wie.xcodeproj",
+      "identifier" : "917612C32AEA864A006D3718",
+      "name" : "wie"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:wie.xcodeproj",
+        "identifier" : "9152C4092ED1D1C600BB1084",
+        "name" : "wieTests"
+      }
+    }
+  ],
+  "version" : 1
+}
