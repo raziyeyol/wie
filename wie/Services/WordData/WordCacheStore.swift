@@ -16,7 +16,6 @@ struct RemoteWord: Codable {
     let id: UUID
     let levelId: UUID
     let text: String
-    let phonetic: String?
     let audioKey: String?
     let sortOrder: Int
     let tags: [String]

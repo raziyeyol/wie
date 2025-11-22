@@ -52,7 +52,6 @@ public class WordLevelService : IWordLevelService
                 word.Id,
                 word.WordLevelId,
                 word.Text,
-                word.Phonetic,
                 word.AudioKey,
                 word.SortOrder,
                 word.Tags))
@@ -76,7 +75,6 @@ public class WordLevelService : IWordLevelService
                         word.Id,
                         word.WordLevelId,
                         word.Text,
-                        word.Phonetic,
                         word.AudioKey,
                         word.SortOrder,
                         word.Tags))
