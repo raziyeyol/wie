@@ -69,10 +69,26 @@ final class DefaultWordRepository: WordRepository {
     
     private func loadBundledFallback() -> [WordLevel] {
         return [
-            WordLevel(name: "Year 1", wordlist: loadWords(fileName: "year1CommonExceptionWords")),
-            WordLevel(name: "Year 2", wordlist: loadWords(fileName: "year2CommonExceptionWords")),
-            WordLevel(name: "Year 3 & Year 4", wordlist: loadWords(fileName: "year3And4CommonExceptionWords")),
-            WordLevel(name: "Year 5 & Year 6", wordlist: loadWords(fileName: "year5And6CommonExceptionWords"))
+            WordLevel(name: "Year 1",
+                      yearBand: "Year 1",
+                      difficulty: "Easy",
+                      description: "Common exception words for Year 1",
+                      wordlist: loadWords(fileName: "year1CommonExceptionWords")),
+            WordLevel(name: "Year 2",
+                      yearBand: "Year 2",
+                      difficulty: "Easy",
+                      description: "Common exception words for Year 2",
+                      wordlist: loadWords(fileName: "year2CommonExceptionWords")),
+            WordLevel(name: "Year 3 & Year 4",
+                      yearBand: "Year 3-4",
+                      difficulty: "Medium",
+                      description: "Common exception words for Years 3 and 4",
+                      wordlist: loadWords(fileName: "year3And4CommonExceptionWords")),
+            WordLevel(name: "Year 5 & Year 6",
+                      yearBand: "Year 5-6",
+                      difficulty: "Advanced",
+                      description: "Common exception words for Years 5 and 6",
+                      wordlist: loadWords(fileName: "year5And6CommonExceptionWords"))
         ]
     }
     
@@ -101,9 +117,17 @@ final class DefaultWordRepository: WordRepository {
                 .map { remoteWord in
                     WordModel(id: remoteWord.sortOrder,
                               uuid: remoteWord.id,
-                              word: remoteWord.text)
+                              levelId: remoteWord.levelId,
+                              word: remoteWord.text,
+                              audioKey: remoteWord.audioKey,
+                              tags: remoteWord.tags)
                 }
-            return WordLevel(name: level.name, wordlist: words, remoteId: level.id)
+            return WordLevel(name: level.name,
+                              yearBand: level.yearBand,
+                              difficulty: level.difficulty,
+                              description: level.description,
+                              wordlist: words,
+                              remoteId: level.id)
         }
     }
 }

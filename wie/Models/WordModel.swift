@@ -10,12 +10,23 @@ import Foundation
 class WordModel:  Identifiable, Codable {
     var id: Int
     var uuid: UUID
+    var levelId: UUID
     var word: String
+    var audioKey: String?
+    var tags: [String]
     
-    init(id: Int, uuid: UUID = UUID(), word: String) {
+    init(id: Int,
+         uuid: UUID = UUID(),
+         levelId: UUID = UUID(),
+         word: String,
+         audioKey: String? = nil,
+         tags: [String] = []) {
         self.id = id
         self.uuid = uuid
+        self.levelId = levelId
         self.word = word
+        self.audioKey = audioKey
+        self.tags = tags
     }
 
     required convenience init(fromString string: String) {
@@ -24,10 +35,20 @@ class WordModel:  Identifiable, Codable {
         if components.count == 2,
            let parsedId = Int(components[0].trimmingCharacters(in: .whitespacesAndNewlines)) {
             let parsedWord = components[1].trimmingCharacters(in: .whitespacesAndNewlines)
-            self.init(id: parsedId, uuid: UUID(), word: parsedWord)
+            self.init(id: parsedId,
+                      uuid: UUID(),
+                      levelId: UUID(),
+                      word: parsedWord,
+                      audioKey: nil,
+                      tags: [])
         }
         else {
-            self.init(id: 0, uuid: UUID(), word: "")
+            self.init(id: 0,
+                      uuid: UUID(),
+                      levelId: UUID(),
+                      word: "",
+                      audioKey: nil,
+                      tags: [])
         }
     }
 }
