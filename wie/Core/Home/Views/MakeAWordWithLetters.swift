@@ -388,7 +388,11 @@ extension Array {
 
 struct MakeAWordWithLetters_Previews: PreviewProvider {
     static var previews: some View {
-        let wordList = WordModel.year5And6WordsList
+        let repository = DefaultWordRepository()
+        let wordList = repository
+            .fetchWordLevels()
+            .first(where: { $0.name == "Year 5 & Year 6" })?
+            .wordlist ?? []
         let viewModel = MakeAWordViewModel(wordList: wordList, currentIndex: 0)
         
         
