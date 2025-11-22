@@ -8,49 +8,59 @@
 import Foundation
 import SwiftUI
 
+@MainActor
 class HomeViewModel: ObservableObject {
-    
-    
-    
     @Published var wordLevels: [WordLevel]
-    
-    @Published var searchText: String = ""
-    
+    @Published var searchText: String = "Search by name"
     @Published var currentWordLevel: WordLevel
     @Published var currentWordModel: WordModel
-    @Published var showWordsList : Bool = false
+    @Published var showWordsList: Bool = false
     
+    private static let placeholderWord = WordModel(id: 0, word: "")
     private let wordRepository: WordRepository
     private let audioService: AudioPlaying
     private let wordSearchGenerator: WordSearchGenerating
     
     init(wordRepository: WordRepository = DefaultWordRepository(),
          audioService: AudioPlaying = DefaultAudioPlayerService(),
-         wordSearchGenerator: WordSearchGenerating = DefaultWordSearchGenerator()) {
+         wordSearchGenerator: WordSearchGenerating = DefaultWordSearchGenerator(),
+         initialWordLevels: [WordLevel]? = nil) {
         self.wordRepository = wordRepository
         self.audioService = audioService
         self.wordSearchGenerator = wordSearchGenerator
         
-        self.searchText =  "Search by name"
-        
-        let levels = wordRepository.fetchWordLevels()
-        self.wordLevels = levels
-        
-        if let firstWordLevel = levels.first {
-            self.currentWordLevel = firstWordLevel
-            
-            if let firstWordModel = firstWordLevel.wordlist.first {
-                self.currentWordModel = firstWordModel
-            }
-            else {
-                self.currentWordModel = WordModel(fromString: "Default")
-            }
+        if let initialLevels = initialWordLevels, let firstLevel = initialLevels.first {
+            self.wordLevels = initialLevels
+            self.currentWordLevel = firstLevel
+            self.currentWordModel = firstLevel.wordlist.first ?? Self.placeholderWord
         } else {
-            
             self.wordLevels = []
-            self.currentWordLevel = WordLevel(name: "Year 1", wordlist: [])
-            self.currentWordModel =  WordModel(fromString: "Deafult")
+            self.currentWordLevel = WordLevel(name: "Loading", wordlist: [])
+            self.currentWordModel = Self.placeholderWord
+            Task {
+                await loadWordLevels()
+            }
         }
+    }
+    
+    func loadWordLevels(forceRefresh: Bool = false) async {
+        do {
+            let levels = try await wordRepository.fetchWordLevels(forceRefresh: forceRefresh)
+            applyLevels(levels)
+        } catch {
+            if wordLevels.isEmpty {
+                wordLevels = []
+                currentWordLevel = WordLevel(name: "Year 1", wordlist: [])
+                currentWordModel = Self.placeholderWord
+            }
+        }
+    }
+    
+    private func applyLevels(_ levels: [WordLevel]) {
+        guard let firstLevel = levels.first else { return }
+        wordLevels = levels
+        currentWordLevel = firstLevel
+        currentWordModel = firstLevel.wordlist.first ?? Self.placeholderWord
     }
     
     func toogleWordsList() {
@@ -62,7 +72,7 @@ class HomeViewModel: ObservableObject {
     func showNextSet(wordLevel: WordLevel) {
         withAnimation(.easeInOut) {
             currentWordLevel = wordLevel
-            currentWordModel = wordLevel.wordlist.first ?? WordModel(fromString: "Default")
+            currentWordModel = wordLevel.wordlist.first ?? Self.placeholderWord
             showWordsList = false
         }
     }

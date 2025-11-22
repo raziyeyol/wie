@@ -1,6 +1,7 @@
 import XCTest
 @testable import wie
 
+@MainActor
 final class HomeViewModelTests: XCTestCase {
     func testToggleWordsListTogglesVisibility() {
         // Arrange
@@ -131,7 +132,8 @@ private extension HomeViewModelTests {
         let repository = MockWordRepository(wordLevels: levels)
         return HomeViewModel(wordRepository: repository,
                              audioService: audioService,
-                             wordSearchGenerator: wordSearchGenerator)
+                             wordSearchGenerator: wordSearchGenerator,
+                             initialWordLevels: levels)
     }
 }
 
@@ -159,8 +161,8 @@ private final class MockWordRepository: WordRepository {
         self.levels = wordLevels
     }
     
-    func fetchWordLevels() -> [WordLevel] {
-        levels
+    func fetchWordLevels(forceRefresh: Bool) async throws -> [WordLevel] {
+        return levels
     }
 }
 

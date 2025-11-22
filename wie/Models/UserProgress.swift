@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class UserProgress: ObservableObject {
     static let shared = UserProgress()
     
@@ -15,8 +16,24 @@ class UserProgress: ObservableObject {
     @Published var badgesEarned: [String] = []
     @Published var wordPlayCounts: [String: Int] = [:]
     
-    private init() {
+    private let defaults: UserDefaults
+    private let playerSyncService: PlayerSyncing
+    private let playerIdKey = "playerIdentifier"
+    private var playerId: UUID? {
+        didSet {
+            defaults.set(playerId?.uuidString, forKey: playerIdKey)
+        }
+    }
+    
+    private init(playerSyncService: PlayerSyncing = DefaultPlayerSyncService(),
+                 defaults: UserDefaults = .standard) {
+        self.playerSyncService = playerSyncService
+        self.defaults = defaults
+        self.playerId = defaults.string(forKey: playerIdKey).flatMap(UUID.init(uuidString:))
         loadProgress()
+        Task {
+            await bootstrapRemoteState()
+        }
     }
     
     func earnStar() {
@@ -60,8 +77,29 @@ class UserProgress: ObservableObject {
         return wordPlayCounts[word, default: 0]
     }
     
+    func recordScore(for gameMode: String, points: Int, stars: Int, duration: TimeInterval, metadata: [String: Any]? = nil) {
+        guard let playerId else { return }
+        let metadataJSON: String?
+        if let metadata,
+           let data = try? JSONSerialization.data(withJSONObject: metadata, options: []),
+           let jsonString = String(data: data, encoding: .utf8) {
+            metadataJSON = jsonString
+        } else {
+            metadataJSON = nil
+        }
+        let payload = ScorePayload(
+            userId: playerId,
+            gameMode: gameMode,
+            points: points,
+            stars: stars,
+            durationSeconds: duration,
+            metadataJson: metadataJSON)
+        Task {
+            try? await playerSyncService.submitScore(payload)
+        }
+    }
+    
     private func saveProgress() {
-        let defaults = UserDefaults.standard
         defaults.set(totalStars, forKey: "totalStars")
         defaults.set(totalPoints, forKey: "totalPoints")
         defaults.set(badgesEarned, forKey: "badgesEarned")
@@ -69,10 +107,10 @@ class UserProgress: ObservableObject {
         if let data = try? JSONEncoder().encode(wordPlayCounts) {
             defaults.set(data, forKey: "wordPlayCounts")
         }
+        syncProgress()
     }
     
     private func loadProgress() {
-        let defaults = UserDefaults.standard
         totalStars = defaults.integer(forKey: "totalStars")
         totalPoints = defaults.integer(forKey: "totalPoints")
         badgesEarned = defaults.stringArray(forKey: "badgesEarned") ?? []
@@ -87,6 +125,38 @@ class UserProgress: ObservableObject {
             }
         } else {
             wordPlayCounts = [:]
+        }
+    }
+    
+    private func bootstrapRemoteState() async {
+        if playerId == nil {
+            do {
+                playerId = try await playerSyncService.ensurePlayerIdentifier(displayName: "Learner")
+            } catch {
+                return
+            }
+        }
+        guard let playerId else { return }
+        do {
+            let profile = try await playerSyncService.fetchProfile(for: playerId)
+            totalStars = profile.totalStars
+            totalPoints = profile.totalPoints
+            badgesEarned = profile.badges
+        } catch {
+            // Silently ignore when offline
+        }
+    }
+    
+    private func syncProgress() {
+        guard let playerId else { return }
+        let payload = ProgressPayload(
+            userId: playerId,
+            totalStars: totalStars,
+            totalPoints: totalPoints,
+            wordsPracticed: wordPlayCounts.values.reduce(0, +),
+            badges: badgesEarned)
+        Task {
+            try? await playerSyncService.upsertProgress(payload)
         }
     }
 }

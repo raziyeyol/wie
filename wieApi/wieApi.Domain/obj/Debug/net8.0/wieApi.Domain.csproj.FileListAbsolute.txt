@@ -1,0 +1,12 @@
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/bin/Debug/net8.0/wieApi.Domain.deps.json
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/bin/Debug/net8.0/wieApi.Domain.dll
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/bin/Debug/net8.0/wieApi.Domain.pdb
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/obj/Debug/net8.0/wieApi.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/obj/Debug/net8.0/wieApi.Domain.AssemblyInfoInputs.cache
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/obj/Debug/net8.0/wieApi.Domain.AssemblyInfo.cs
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/obj/Debug/net8.0/wieApi.Domain.csproj.CoreCompileInputs.cache
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/obj/Debug/net8.0/wieApi.Domain.sourcelink.json
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/obj/Debug/net8.0/wieApi.Domain.dll
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/obj/Debug/net8.0/refint/wieApi.Domain.dll
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/obj/Debug/net8.0/wieApi.Domain.pdb
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/obj/Debug/net8.0/ref/wieApi.Domain.dll

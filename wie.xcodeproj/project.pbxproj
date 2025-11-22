@@ -65,6 +65,9 @@
 		91FF20012ED1F50000A1A1A1 /* AudioPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FF10012ED1F50000A1A1A1 /* AudioPlayerService.swift */; };
 		91FF20022ED1F50000A1A1A1 /* WordRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FF10022ED1F50000A1A1A1 /* WordRepository.swift */; };
 		91FF20032ED1F50000A1A1A1 /* WordSearchGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FF10032ED1F50000A1A1A1 /* WordSearchGenerator.swift */; };
+		91FF50012ED1F60000A1A1A1 /* BackendConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FF40012ED1F60000A1A1A1 /* BackendConfiguration.swift */; };
+		91FF50022ED1F60000A1A1A1 /* WordCacheStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FF40022ED1F60000A1A1A1 /* WordCacheStore.swift */; };
+		91FF50032ED1F60000A1A1A1 /* PlayerSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FF40032ED1F60000A1A1A1 /* PlayerSyncService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +143,9 @@
 		91FF10012ED1F50000A1A1A1 /* AudioPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerService.swift; sourceTree = "<group>"; };
 		91FF10022ED1F50000A1A1A1 /* WordRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordRepository.swift; sourceTree = "<group>"; };
 		91FF10032ED1F50000A1A1A1 /* WordSearchGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchGenerator.swift; sourceTree = "<group>"; };
+		91FF40012ED1F60000A1A1A1 /* BackendConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendConfiguration.swift; sourceTree = "<group>"; };
+		91FF40022ED1F60000A1A1A1 /* WordCacheStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCacheStore.swift; sourceTree = "<group>"; };
+		91FF40032ED1F60000A1A1A1 /* PlayerSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSyncService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -304,6 +310,7 @@
 				91EB18472B59425B00D27696 /* year3And4CommonExceptionWords.strings */,
 				91EB18492B59426700D27696 /* year5And6CommonExceptionWords.strings */,
 				91B6A90A2AFD2729003E60A9 /* MenuItem.swift */,
+				91FF40012ED1F60000A1A1A1 /* BackendConfiguration.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -333,6 +340,7 @@
 				91FF30022ED1F50000A1A1A1 /* Audio */,
 				91FF30032ED1F50000A1A1A1 /* WordData */,
 				91FF30042ED1F50000A1A1A1 /* WordSearch */,
+				91FF40032ED1F60000A1A1A1 /* PlayerSyncService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -349,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				91FF10022ED1F50000A1A1A1 /* WordRepository.swift */,
+				91FF40022ED1F60000A1A1A1 /* WordCacheStore.swift */,
 			);
 			path = WordData;
 			sourceTree = "<group>";
@@ -480,6 +489,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91FF50012ED1F60000A1A1A1 /* BackendConfiguration.swift in Sources */,
 				91FF20012ED1F50000A1A1A1 /* AudioPlayerService.swift in Sources */,
 				91FF20022ED1F50000A1A1A1 /* WordRepository.swift in Sources */,
 				91FF20032ED1F50000A1A1A1 /* WordSearchGenerator.swift in Sources */,
@@ -493,6 +503,7 @@
 				918394432AEC20D700ABD18D /* CommonWordListProvider.swift in Sources */,
 				919127D42BD7D26B00D1AA23 /* Card.swift in Sources */,
 				918145B02C9C36BA00D93222 /* UserProgress.swift in Sources */,
+				91FF50032ED1F60000A1A1A1 /* PlayerSyncService.swift in Sources */,
 				91572B1E2CDB9797001DBF2D /* CircularProgressView.swift in Sources */,
 				9122BD0C2C9C51B300288AE9 /* BadgesView.swift in Sources */,
 				9137556E2BA9C4EC00EA3DC9 /* CustomNavBarContainerView.swift in Sources */,
@@ -500,6 +511,7 @@
 				917612EA2AEAA6DF006D3718 /* ThinkWriteView.swift in Sources */,
 				91966F112B58049C0097C02F /* WrapView2.swift in Sources */,
 				917612E62AEAA67A006D3718 /* WordSearchView.swift in Sources */,
+				91FF50022ED1F60000A1A1A1 /* WordCacheStore.swift in Sources */,
 				91488CCC2B2C92FB00696F54 /* WrapView.swift in Sources */,
 				917AACD62CDA67DE00390EED /* TextToSpeech.swift in Sources */,
 				912591922BAC42E300B59151 /* CustomNavBarPreferenceKeys.swift in Sources */,

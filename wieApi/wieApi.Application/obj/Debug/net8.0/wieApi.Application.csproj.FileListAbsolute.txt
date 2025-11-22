@@ -1,0 +1,16 @@
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/bin/Debug/net8.0/wieApi.Application.deps.json
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/bin/Debug/net8.0/wieApi.Application.dll
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/bin/Debug/net8.0/wieApi.Application.pdb
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/bin/Debug/net8.0/wieApi.Domain.dll
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/bin/Debug/net8.0/wieApi.Domain.pdb
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/obj/Debug/net8.0/wieApi.Application.csproj.AssemblyReference.cache
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/obj/Debug/net8.0/wieApi.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/obj/Debug/net8.0/wieApi.Application.AssemblyInfoInputs.cache
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/obj/Debug/net8.0/wieApi.Application.AssemblyInfo.cs
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/obj/Debug/net8.0/wieApi.Application.csproj.CoreCompileInputs.cache
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/obj/Debug/net8.0/wieApi.Application.sourcelink.json
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/obj/Debug/net8.0/wieApi.Application.csproj.CopyComplete
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/obj/Debug/net8.0/wieApi.Application.dll
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/obj/Debug/net8.0/refint/wieApi.Application.dll
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/obj/Debug/net8.0/wieApi.Application.pdb
+/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/obj/Debug/net8.0/ref/wieApi.Application.dll

@@ -32,8 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
             endingLineNumber = "73"
-            landmarkName = "HomeViewModel"
-            landmarkType = "3">
+            landmarkName = "showNextSet(wordLevel:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -48,7 +48,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "82"
             endingLineNumber = "82"
-            landmarkName = "nextButtonPressed(word:)"
+            landmarkName = "updateWord(wordModel:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -140,8 +140,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
             endingLineNumber = "18"
-            landmarkName = "init()"
-            landmarkType = "7">
+            landmarkName = "UserProgress"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

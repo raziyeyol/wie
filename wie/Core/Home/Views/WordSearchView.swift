@@ -78,6 +78,12 @@ struct WordSearchView: View {
                                 showConfetti = true
                                 userProgress.earnStar()
                                 userProgress.addPoints(10)
+                                userProgress.recordScore(
+                                    for: "WordSearch",
+                                    points: foundWords.count * 10,
+                                    stars: 1,
+                                    duration: 0,
+                                    metadata: ["words": foundWords])
                             }
                             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                                 vm.resetGame()

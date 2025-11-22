@@ -309,6 +309,12 @@ struct BottomTrayView: View {
         if score == maxSelection {
             showCongratulations = true
         }
+        userProgress.recordScore(
+            for: "WhatsOnTheTray",
+            points: score * 5,
+            stars: score == maxSelection ? 1 : 0,
+            duration: 0,
+            metadata: ["score": score])
     }
     
     @ViewBuilder

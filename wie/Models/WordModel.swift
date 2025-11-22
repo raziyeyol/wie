@@ -12,19 +12,22 @@ class WordModel:  Identifiable, Codable {
     var uuid: UUID
     var word: String
     
-    required init(fromString string: String) {
-        
+    init(id: Int, uuid: UUID = UUID(), word: String) {
+        self.id = id
+        self.uuid = uuid
+        self.word = word
+    }
+
+    required convenience init(fromString string: String) {
         let components = string.split(separator: ",")
-            
-        if components.count == 2 {
-            self.id = Int(components[0].trimmingCharacters(in: .whitespacesAndNewlines))!
-            self.uuid = UUID()
-            self.word = components[1].trimmingCharacters(in: .whitespacesAndNewlines)
+
+        if components.count == 2,
+           let parsedId = Int(components[0].trimmingCharacters(in: .whitespacesAndNewlines)) {
+            let parsedWord = components[1].trimmingCharacters(in: .whitespacesAndNewlines)
+            self.init(id: parsedId, uuid: UUID(), word: parsedWord)
         }
-        else{
-            self.id =  10
-            self.uuid = UUID()
-            self.word = ""
+        else {
+            self.init(id: 0, uuid: UUID(), word: "")
         }
     }
 }

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Eo0R5Z+UiGkYTqI4GDhFTl7xKuzOdZ8VgRkmciz36rU=",
+  "Source": "wieApi.Web",
+  "BasePath": "_content/wieApi.Web",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

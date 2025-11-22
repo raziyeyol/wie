@@ -1,0 +1,6 @@
+@wieApi.Web_HostAddress = http://localhost:5262
+
+GET {{wieApi.Web_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,212 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Infrastructure/wieApi.Infrastructure.csproj": {}
+  },
+  "projects": {
+    "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/wieApi.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/wieApi.Application.csproj",
+        "projectName": "wieApi.Application",
+        "projectPath": "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/wieApi.Application.csproj",
+        "packagesPath": "/Users/raziyeyolasigmazoglu/.nuget/packages/",
+        "outputPath": "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/raziyeyolasigmazoglu/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/wieApi.Domain.csproj": {
+                "projectPath": "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/wieApi.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[12.1.0, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/raziyeyolasigmazoglu/.vscode-dotnet-sdk/.dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/wieApi.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/wieApi.Domain.csproj",
+        "projectName": "wieApi.Domain",
+        "projectPath": "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/wieApi.Domain.csproj",
+        "packagesPath": "/Users/raziyeyolasigmazoglu/.nuget/packages/",
+        "outputPath": "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/raziyeyolasigmazoglu/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/raziyeyolasigmazoglu/.vscode-dotnet-sdk/.dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Infrastructure/wieApi.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Infrastructure/wieApi.Infrastructure.csproj",
+        "projectName": "wieApi.Infrastructure",
+        "projectPath": "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Infrastructure/wieApi.Infrastructure.csproj",
+        "packagesPath": "/Users/raziyeyolasigmazoglu/.nuget/packages/",
+        "outputPath": "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/raziyeyolasigmazoglu/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/wieApi.Application.csproj": {
+                "projectPath": "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/wieApi.Application.csproj"
+              },
+              "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/wieApi.Domain.csproj": {
+                "projectPath": "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Domain/wieApi.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Data.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/raziyeyolasigmazoglu/.vscode-dotnet-sdk/.dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
