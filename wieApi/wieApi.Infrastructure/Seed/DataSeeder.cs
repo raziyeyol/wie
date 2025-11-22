@@ -7,7 +7,7 @@ namespace wieApi.Infrastructure.Seed;
 
 public static class DataSeeder
 {
-    public static async Task SeedAsync(WordsLearningDbContext context, ILogger logger, CancellationToken cancellationToken = default)
+    public static async Task SeedAsync(WieDbContext context, ILogger logger, CancellationToken cancellationToken = default)
     {
         if (!await context.WordLevels.AnyAsync(cancellationToken))
         {

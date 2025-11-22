@@ -9,8 +9,8 @@ using wieApi.Infrastructure.Persistence;
 
 namespace wieApi.Infrastructure.Persistence.Migrations
 {
-    [DbContext(typeof(WordsLearningDbContext))]
-    partial class WordsLearningDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(WieDbContext))]
+    partial class WieDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

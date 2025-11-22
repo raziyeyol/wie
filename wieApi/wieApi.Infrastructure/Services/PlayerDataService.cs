@@ -8,9 +8,9 @@ namespace wieApi.Infrastructure.Services;
 
 public class PlayerDataService : IPlayerDataService
 {
-    private readonly WordsLearningDbContext _dbContext;
+    private readonly WieDbContext _dbContext;
 
-    public PlayerDataService(WordsLearningDbContext dbContext)
+    public PlayerDataService(WieDbContext dbContext)
     {
         _dbContext = dbContext;
     }

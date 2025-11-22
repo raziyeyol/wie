@@ -44,7 +44,6 @@
 		918145B02C9C36BA00D93222 /* UserProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918145AF2C9C36BA00D93222 /* UserProgress.swift */; };
 		918145B22C9C44E400D93222 /* RewardAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918145B12C9C44E400D93222 /* RewardAnimationView.swift */; };
 		9183943B2AEC1D6700ABD18D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183943A2AEC1D6700ABD18D /* Color.swift */; };
-		918394432AEC20D700ABD18D /* CommonWordListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918394422AEC20D700ABD18D /* CommonWordListProvider.swift */; };
 		91894EC92BA87EB2000D8EDB /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91894EC82BA87EB2000D8EDB /* BackButtonView.swift */; };
 		91894ECB2BA88577000D8EDB /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91894ECA2BA88577000D8EDB /* CustomNavBarView.swift */; };
 		91899EBF2B627E5C000F4D57 /* WordBasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91899EBE2B627E5C000F4D57 /* WordBasicView.swift */; };
@@ -121,7 +120,6 @@
 		918145AF2C9C36BA00D93222 /* UserProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProgress.swift; sourceTree = "<group>"; };
 		918145B12C9C44E400D93222 /* RewardAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardAnimationView.swift; sourceTree = "<group>"; };
 		9183943A2AEC1D6700ABD18D /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		918394422AEC20D700ABD18D /* CommonWordListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWordListProvider.swift; sourceTree = "<group>"; };
 		91894EC82BA87EB2000D8EDB /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
 		91894ECA2BA88577000D8EDB /* CustomNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
 		91899EBE2B627E5C000F4D57 /* WordBasicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBasicView.swift; sourceTree = "<group>"; };
@@ -319,7 +317,6 @@
 			isa = PBXGroup;
 			children = (
 				9183943A2AEC1D6700ABD18D /* Color.swift */,
-				918394422AEC20D700ABD18D /* CommonWordListProvider.swift */,
 				918A1D912B2CC8B2008C9D4C /* OrientationInfo.swift */,
 			);
 			path = Extensions;
@@ -500,7 +497,6 @@
 				91488CCE2B2C9CD300696F54 /* LabelledDividerView.swift in Sources */,
 				917612E82AEAA693006D3718 /* HighFrequencyWords.swift in Sources */,
 				916723062AFBC84300F5D823 /* WordFlashCardView.swift in Sources */,
-				918394432AEC20D700ABD18D /* CommonWordListProvider.swift in Sources */,
 				919127D42BD7D26B00D1AA23 /* Card.swift in Sources */,
 				918145B02C9C36BA00D93222 /* UserProgress.swift in Sources */,
 				91FF50032ED1F60000A1A1A1 /* PlayerSyncService.swift in Sources */,

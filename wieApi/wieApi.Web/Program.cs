@@ -28,7 +28,7 @@ var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<WordsLearningDbContext>();
+    var dbContext = scope.ServiceProvider.GetRequiredService<WieDbContext>();
     var logger = scope.ServiceProvider.GetRequiredService<ILoggerFactory>().CreateLogger("Seeder");
     await dbContext.Database.MigrateAsync();
     await DataSeeder.SeedAsync(dbContext, logger);

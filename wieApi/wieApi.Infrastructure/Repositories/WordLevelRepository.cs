@@ -7,9 +7,9 @@ namespace wieApi.Infrastructure.Repositories;
 
 public class WordLevelRepository : IWordLevelRepository
 {
-    private readonly WordsLearningDbContext _dbContext;
+    private readonly WieDbContext _dbContext;
 
-    public WordLevelRepository(WordsLearningDbContext dbContext)
+    public WordLevelRepository(WieDbContext dbContext)
     {
         _dbContext = dbContext;
     }

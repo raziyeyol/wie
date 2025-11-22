@@ -4,9 +4,9 @@ using wieApi.Domain.Entities;
 
 namespace wieApi.Infrastructure.Persistence;
 
-public class WordsLearningDbContext : DbContext
+public class WieDbContext : DbContext
 {
-    public WordsLearningDbContext(DbContextOptions<WordsLearningDbContext> options) : base(options)
+    public WieDbContext(DbContextOptions<WieDbContext> options) : base(options)
     {
     }
 

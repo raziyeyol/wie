@@ -14,7 +14,7 @@ public static class DependencyInjection
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         var sqliteBuilder = new SqliteConnectionStringBuilder(
-            configuration.GetConnectionString("WordsLearning") ?? "Data Source=Data/wordslearning.db");
+            configuration.GetConnectionString("wie") ?? "Data Source=Data/wie.db");
 
         if (!Path.IsPathRooted(sqliteBuilder.DataSource))
         {
@@ -27,7 +27,7 @@ public static class DependencyInjection
             Directory.CreateDirectory(dataDirectory);
         }
 
-        services.AddDbContext<WordsLearningDbContext>(options =>
+        services.AddDbContext<WieDbContext>(options =>
         {
             options.UseSqlite(sqliteBuilder.ToString());
         });

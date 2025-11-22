@@ -10,7 +10,7 @@ using wieApi.Infrastructure.Persistence;
 
 namespace wieApi.Infrastructure.Persistence.Migrations
 {
-    [DbContext(typeof(WordsLearningDbContext))]
+    [DbContext(typeof(WieDbContext))]
     [Migration("20251122162411_RemovePhoneticFromWord")]
     partial class RemovePhoneticFromWord
     {
