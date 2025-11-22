@@ -14,7 +14,7 @@ final class HomeViewModelTests: XCTestCase {
         XCTAssertTrue(sut.showWordsList)
     }
     
-    func testShowNextSetUpdatesCurrentLevelAndWord() throws {
+    func testShowNextSetUpdatesCurrentLevelAndWord() {
         // Arrange
         let secondLevel = TestDataFactory.makeWordLevel(name: "Second", words: ["one", "two"])
         let sut = makeSUT(wordLevels: [TestDataFactory.makeWordLevel(), secondLevel])
@@ -45,7 +45,6 @@ final class HomeViewModelTests: XCTestCase {
         // Arrange
         let level = TestDataFactory.makeWordLevel(words: ["alpha", "beta", "gamma"])
         let sut = makeSUT(wordLevels: [level])
-        sut.currentWordLevel = level
         sut.currentWordModel = level.wordlist[0]
         
         // Act
@@ -59,7 +58,6 @@ final class HomeViewModelTests: XCTestCase {
         // Arrange
         let level = TestDataFactory.makeWordLevel(words: ["alpha", "beta"])
         let sut = makeSUT(wordLevels: [level])
-        sut.currentWordLevel = level
         
         // Act
         let result = sut.nextButtonPressed(word: "beta")
@@ -72,7 +70,6 @@ final class HomeViewModelTests: XCTestCase {
         // Arrange
         let level = TestDataFactory.makeWordLevel(words: ["alpha", "beta"])
         let sut = makeSUT(wordLevels: [level])
-        sut.currentWordLevel = level
         
         // Act
         let result = sut.nextButtonPressed(word: "unknown")
@@ -85,7 +82,6 @@ final class HomeViewModelTests: XCTestCase {
         // Arrange
         let level = TestDataFactory.makeWordLevel(words: ["alpha", "beta", "gamma", "delta"])
         let sut = makeSUT(wordLevels: [level])
-        sut.currentWordLevel = level
         let originalWords = level.wordlist.map { $0.word }
         
         // Act
@@ -96,14 +92,122 @@ final class HomeViewModelTests: XCTestCase {
         XCTAssertEqual(originalWords.sorted(), shuffledWords.sorted())
     }
     
-    func testGenerateWordSearchGridFillsEntireGrid() {
+    func testGenerateWordSearchGridDelegatesToGenerator() {
         // Arrange
-        let sut = makeSUT()
+        let generator = StubWordSearchGenerator()
+        generator.gridToReturn = [Array("cat")]
+        let sut = makeSUT(wordSearchGenerator: generator)
+        
+        // Act
+        let grid = sut.generateWordSearchGrid(rows: 1, columns: 3, words: ["cat"])
+        
+        // Assert
+        XCTAssertEqual(generator.receivedArguments?.rows, 1)
+        XCTAssertEqual(generator.receivedArguments?.columns, 3)
+        XCTAssertEqual(generator.receivedArguments?.words, ["cat"])
+        XCTAssertEqual(grid, generator.gridToReturn)
+    }
+    
+    func testPlaySecondSoundUsesAudioService() {
+        // Arrange
+        let audioService = MockAudioService()
+        let sut = makeSUT(audioService: audioService)
+        
+        // Act
+        sut.playSecondSound(soundName: "ding")
+        
+        // Assert
+        XCTAssertEqual(audioService.secondaryCalls, ["ding"])
+    }
+}
+
+// MARK: - Test helpers
+
+private extension HomeViewModelTests {
+    func makeSUT(wordLevels: [WordLevel]? = nil,
+                 audioService: AudioPlaying = MockAudioService(),
+                 wordSearchGenerator: WordSearchGenerating = StubWordSearchGenerator()) -> HomeViewModel {
+        let levels = wordLevels ?? [TestDataFactory.makeWordLevel()]
+        let repository = MockWordRepository(wordLevels: levels)
+        return HomeViewModel(wordRepository: repository,
+                             audioService: audioService,
+                             wordSearchGenerator: wordSearchGenerator)
+    }
+}
+
+// MARK: - Test doubles & factories
+
+enum TestDataFactory {
+    static func makeWordLevel(name: String = "Test Level", words: [String] = ["alpha", "beta"]) -> WordLevel {
+        let models = words.enumerated().map { WordModel.stub(id: $0.offset, word: $0.element) }
+        return WordLevel(name: name, wordlist: models)
+    }
+}
+
+private extension WordModel {
+    static func stub(id: Int, word: String) -> WordModel {
+        WordModel(fromString: "\(id), \(word)")
+    }
+}
+
+// MARK: - Test doubles
+
+private final class MockWordRepository: WordRepository {
+    private let levels: [WordLevel]
+    
+    init(wordLevels: [WordLevel]) {
+        self.levels = wordLevels
+    }
+    
+    func fetchWordLevels() -> [WordLevel] {
+        levels
+    }
+}
+
+private final class MockAudioService: AudioPlaying {
+    private(set) var primaryCalls: [String] = []
+    private(set) var primarySlowCalls: [String] = []
+    private(set) var secondaryCalls: [String] = []
+    private(set) var secondarySlowCalls: [String] = []
+    
+    func playPrimary(named soundName: String) {
+        primaryCalls.append(soundName)
+    }
+    
+    func playPrimarySlow(named soundName: String) {
+        primarySlowCalls.append(soundName)
+    }
+    
+    func playSecondary(named soundName: String) {
+        secondaryCalls.append(soundName)
+    }
+    
+    func playSecondarySlow(named soundName: String) {
+        secondarySlowCalls.append(soundName)
+    }
+}
+
+private final class StubWordSearchGenerator: WordSearchGenerating {
+    var gridToReturn: [[Character]] = []
+    private(set) var receivedArguments: (rows: Int, columns: Int, words: [String])?
+    
+    func makeGrid(rows: Int, columns: Int, words: [String]) -> [[Character]] {
+        receivedArguments = (rows, columns, words)
+        return gridToReturn
+    }
+}
+
+// MARK: - Service implementation tests
+
+final class DefaultWordSearchGeneratorTests: XCTestCase {
+    func testMakeGridFillsEntireBoard() {
+        // Arrange
+        let generator = DefaultWordSearchGenerator()
         let rows = 5
         let columns = 5
         
         // Act
-        let grid = sut.generateWordSearchGrid(rows: rows, columns: columns, words: ["cat"])
+        let grid = generator.makeGrid(rows: rows, columns: columns, words: ["cat"])
         
         // Assert
         XCTAssertEqual(grid.count, rows)
@@ -111,35 +215,21 @@ final class HomeViewModelTests: XCTestCase {
         XCTAssertFalse(grid.flatMap { $0 }.contains(Character(" ")))
     }
     
-    func testGenerateWordSearchGridPlacesAllWords() {
+    func testMakeGridPlacesAllWords() {
         // Arrange
-        let sut = makeSUT()
+        let generator = DefaultWordSearchGenerator()
         let words = ["cat", "dog", "owl"]
         
         // Act
-        let grid = sut.generateWordSearchGrid(rows: 8, columns: 8, words: words)
+        let grid = generator.makeGrid(rows: 8, columns: 8, words: words)
         
         // Assert
         for word in words {
-            XCTAssertTrue(containsWord(word, in: grid), "Missing word: \(word)")
+            XCTAssertTrue(contains(word: word, in: grid), "Missing word: \(word)")
         }
-    }
-}
-
-// MARK: - Test helpers
-
-private extension HomeViewModelTests {
-    func makeSUT(wordLevels: [WordLevel]? = nil) -> HomeViewModel {
-        let sut = HomeViewModel()
-        if let wordLevels {
-            sut.wordLevels = wordLevels
-            sut.currentWordLevel = wordLevels.first ?? TestDataFactory.makeWordLevel(name: "Empty", words: [])
-            sut.currentWordModel = sut.currentWordLevel.wordlist.first ?? WordModel.stub(id: -1, word: "placeholder")
-        }
-        return sut
     }
     
-    func containsWord(_ word: String, in grid: [[Character]]) -> Bool {
+    private func contains(word: String, in grid: [[Character]]) -> Bool {
         let target = Array(word)
         let rowCount = grid.count
         let columnCount = grid.first?.count ?? 0
@@ -158,20 +248,5 @@ private extension HomeViewModelTests {
             }
         }
         return false
-    }
-}
-
-// MARK: - Test doubles & factories
-
-enum TestDataFactory {
-    static func makeWordLevel(name: String = "Test Level", words: [String] = ["alpha", "beta"]) -> WordLevel {
-        let models = words.enumerated().map { WordModel.stub(id: $0.offset, word: $0.element) }
-        return WordLevel(name: name, wordlist: models)
-    }
-}
-
-private extension WordModel {
-    static func stub(id: Int, word: String) -> WordModel {
-        WordModel(fromString: "\(id), \(word)")
     }
 }
