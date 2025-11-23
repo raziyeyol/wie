@@ -9,8 +9,8 @@ import Foundation
 
 class WordLevel: Identifiable, Equatable {
 
-    let id = UUID().uuidString
-    let remoteId: UUID?
+    let id = UUID().uuidString // local id created inside the app
+    let remoteId: UUID?        // API/server-side id (if the device is online).This lets you sync or compare data correctly with the backend.
     let name: String
     let description: String
     var wordlist: [Word]
