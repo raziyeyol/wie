@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Payloads for syncing with the backend
 @MainActor
 class UserProgress: ObservableObject {
     static let shared = UserProgress()

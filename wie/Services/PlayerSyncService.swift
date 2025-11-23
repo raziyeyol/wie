@@ -1,5 +1,7 @@
 import Foundation
 
+
+// Defines the interface for player synchronization services.
 protocol PlayerSyncing {
     func ensurePlayerIdentifier(displayName: String) async throws -> UUID
     func fetchProfile(for userId: UUID) async throws -> UserProfileResponse
@@ -7,6 +9,8 @@ protocol PlayerSyncing {
     func submitScore(_ payload: ScorePayload) async throws
 }
 
+// It keeps the player data in sync with the backend server 
+// so that progress and scores are stored remotely when online.
 final class DefaultPlayerSyncService: PlayerSyncing {
     private let baseURL: URL
     private let session: URLSession
