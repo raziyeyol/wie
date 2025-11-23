@@ -193,34 +193,25 @@
 			path = Launch;
 			sourceTree = "<group>";
 		};
-		916723042AFBC82B00F5D823 /* Components */ = {
+		916723042AFBC82B00F5D823 /* SharedComponents */ = {
 			isa = PBXGroup;
 			children = (
 				917612F12AEBD809006D3718 /* ProgressCircleView.swift */,
-				916723052AFBC84300F5D823 /* WordFlashCardView.swift */,
 				916969932B0B7E6A00BCFF99 /* SearchBarView.swift */,
-				91488CCB2B2C92FB00696F54 /* WrapView.swift */,
 				91F27C732CAECC470068F31D /* CustomButtonStyle.swift */,
-				91966F102B58049C0097C02F /* WrapView2.swift */,
-				911777562B5D4AB400066C71 /* LetterView.swift */,
 				91488CCD2B2C9CD300696F54 /* LabelledDividerView.swift */,
-				9128FA542B5552D800F2C303 /* WordView.swift */,
-				919127D32BD7D26B00D1AA23 /* CardView.swift */,
-				91899EBE2B627E5C000F4D57 /* WordBasicView.swift */,
-				916E80EA2B613DCB001427EE /* GridView.swift */,
 				91894EC82BA87EB2000D8EDB /* BackButtonView.swift */,
 				91894ECA2BA88577000D8EDB /* CustomNavBarView.swift */,
 				9137556D2BA9C4EC00EA3DC9 /* CustomNavBarContainerView.swift */,
 				9137556F2BA9CA2500EA3DC9 /* CustomNavView.swift */,
 				913755732BA9CC8F00EA3DC9 /* CustomNavLinkView.swift */,
 				912591912BAC42E300B59151 /* CustomNavBarPreferenceKeys.swift */,
-				91F97B3D2BD90B4D0099E049 /* TrayView.swift */,
 				918145B12C9C44E400D93222 /* RewardAnimationView.swift */,
 				9122BD0B2C9C51B200288AE9 /* BadgesView.swift */,
 				9122BD0D2C9C51DA00288AE9 /* ConfettiView.swift */,
 				91572B1D2CDB9797001DBF2D /* CircularProgressView.swift */,
 			);
-			path = Components;
+			path = SharedComponents;
 			sourceTree = "<group>";
 		};
 		917612BB2AEA864A006D3718 = {
@@ -269,7 +260,7 @@
 		918394372AEC1D1500ABD18D /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				916723042AFBC82B00F5D823 /* Components */,
+				916723042AFBC82B00F5D823 /* SharedComponents */,
 				9183943D2AEC1DEC00ABD18D /* Home */,
 				91440EE22D36901F00DD8DF9 /* Launch */,
 			);
@@ -312,11 +303,28 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		91D6AA3A2D3690500034F2F1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				916723052AFBC84300F5D823 /* WordFlashCardView.swift */,
+				91488CCB2B2C92FB00696F54 /* WrapView.swift */,
+				91966F102B58049C0097C02F /* WrapView2.swift */,
+				911777562B5D4AB400066C71 /* LetterView.swift */,
+				9128FA542B5552D800F2C303 /* WordView.swift */,
+				919127D32BD7D26B00D1AA23 /* CardView.swift */,
+				91899EBE2B627E5C000F4D57 /* WordBasicView.swift */,
+				916E80EA2B613DCB001427EE /* GridView.swift */,
+				91F97B3D2BD90B4D0099E049 /* TrayView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		9183943D2AEC1DEC00ABD18D /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				913F7E8D2AFA70AD00E064E7 /* ViewModels */,
 				913F7E8C2AFA709400E064E7 /* Views */,
+				91D6AA3A2D3690500034F2F1 /* Components */,
 			);
 			path = Home;
 			sourceTree = "<group>";

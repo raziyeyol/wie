@@ -48,7 +48,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "82"
             endingLineNumber = "82"
-            landmarkName = "updateWord(wordModel:)"
+            landmarkName = "updateWord(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
