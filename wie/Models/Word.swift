@@ -1,5 +1,5 @@
 //
-//  WordModel.swift
+//  Word.swift
 //  wie
 //
 //  Created by raziye yolasigmazoglu on 09/11/2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WordModel:  Identifiable, Codable {
+class Word: Identifiable, Codable {
     var id: Int
     var uuid: UUID
     var levelId: UUID

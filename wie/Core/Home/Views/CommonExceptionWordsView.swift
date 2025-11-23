@@ -71,21 +71,14 @@ struct CommonExceptionWordsView: View {
 struct CommonExceptionWordsView_Previews: PreviewProvider {
     static var previews: some View {
         
-        Group {
-            
+     
             CommonExceptionWordsView()
                 .environmentObject(HomeViewModel())
                 .environmentObject(UserProgress.shared)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 15 Pro Max"))
-                .previewDisplayName("iPhone 15 Pro Max")
+                
             
-            
-            CommonExceptionWordsView()
-                .environmentObject(HomeViewModel())
-                .environmentObject(UserProgress.shared)
-                .previewDevice(PreviewDevice(rawValue: "iPad (10th generation)"))
-                .previewDisplayName("iPad (10th generation)")
-        }
+         
+      
     }
 }
 

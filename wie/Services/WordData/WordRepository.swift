@@ -92,7 +92,7 @@ final class DefaultWordRepository: WordRepository {
         ]
     }
     
-    private func loadWords(fileName: String) -> [WordModel] {
+    private func loadWords(fileName: String) -> [Word] {
         guard let path = bundle.path(forResource: fileName, ofType: "strings"),
               let dictionary = NSDictionary(contentsOfFile: path) as? [String: String] else {
             return []
@@ -101,7 +101,7 @@ final class DefaultWordRepository: WordRepository {
         return dictionary
             .values
             .filter { !$0.isEmpty }
-            .compactMap { WordModel(fromString: $0) }
+            .compactMap { Word(fromString: $0) }
             .sorted { $0.id < $1.id }
     }
     
@@ -115,7 +115,7 @@ final class DefaultWordRepository: WordRepository {
                     return lhs.sortOrder < rhs.sortOrder
                 }
                 .map { remoteWord in
-                    WordModel(id: remoteWord.sortOrder,
+                    Word(id: remoteWord.sortOrder,
                               uuid: remoteWord.id,
                               levelId: remoteWord.levelId,
                               word: remoteWord.text,

@@ -11,7 +11,7 @@ struct WrapView2: View {
     
     var aimWords: [String] = []
     
-    init(wordModelList: [WordModel]) {
+    init(wordModelList: [Word]) {
         self.aimWords = wordModelList.map { $0.word }
     }
     
@@ -58,6 +58,6 @@ struct WrapView2: View {
 
 struct WrapView2_Previews: PreviewProvider {
     static var previews: some View {
-        WrapView2(wordModelList: [WordModel(fromString: "Word")]).background(Color.red)
+        WrapView2(wordModelList: [Word(fromString: "Word")]).background(Color.red)
     }
 }

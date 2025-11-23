@@ -17,8 +17,8 @@ struct ElementModel: Identifiable, Codable {
 struct WhatsOnTheTrayView: View {
     @EnvironmentObject private var vm: HomeViewModel
     @State private var showTray = false
-    @State private var wordList: [WordModel] = []
-    @State private var tray: [WordModel] = []
+    @State private var wordList: [Word] = []
+    @State private var tray: [Word] = []
     
     @EnvironmentObject private var userProgress: UserProgress
     
@@ -121,7 +121,7 @@ struct WhatsOnTheTrayView: View {
 }
 
 struct TrayContentStack: View {
-    @Binding var tray: [WordModel]
+    @Binding var tray: [Word]
     let geometry: GeometryProxy
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -146,7 +146,7 @@ struct TrayContentStack: View {
         }
     }
     
-    private func cardView(word: WordModel, maxWidth: CGFloat) -> some View {
+    private func cardView(word: Word, maxWidth: CGFloat) -> some View {
         CardView(
             word: word.word,
             maxWidth: maxWidth,
@@ -157,8 +157,8 @@ struct TrayContentStack: View {
 
 struct BottomTrayView: View {
     @Binding var showTray: Bool
-    @Binding var wordList: [WordModel]
-    @Binding var tray: [WordModel]
+    @Binding var wordList: [Word]
+    @Binding var tray: [Word]
     
     var resetGameAction: () -> Void
     
@@ -274,7 +274,7 @@ struct BottomTrayView: View {
         .padding(.bottom)
     }
     
-    private func cardView(word: WordModel, maxWidth: CGFloat) -> some View {
+    private func cardView(word: Word, maxWidth: CGFloat) -> some View {
         CardView(
             word: word.word,
             maxWidth: maxWidth,
@@ -349,21 +349,12 @@ struct BottomTrayView: View {
 
 struct MakeSentenceView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            
+       
             WhatsOnTheTrayView()
                 .environmentObject(HomeViewModel())
                 .ignoresSafeArea()
-                .previewDevice(PreviewDevice(rawValue: "iPhone 15 Pro Max"))
-                .previewDisplayName("iPhone 15 Pro Max")
             
             
-            WhatsOnTheTrayView()
-                .environmentObject(HomeViewModel())
-                .ignoresSafeArea()
-                .previewDevice(PreviewDevice(rawValue: "iPad (10th generation)"))
-                .previewDisplayName("iPad (10th generation)")
-            
-        }
+       
     }
 }

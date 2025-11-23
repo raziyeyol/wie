@@ -36,7 +36,7 @@
 		917612E22AEAA646006D3718 /* WhatsOnTheTrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917612E12AEAA646006D3718 /* WhatsOnTheTrayView.swift */; };
 		917612E62AEAA67A006D3718 /* WordSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917612E52AEAA67A006D3718 /* WordSearchView.swift */; };
 		917612F22AEBD809006D3718 /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917612F12AEBD809006D3718 /* ProgressCircleView.swift */; };
-		9178EA902BE24A99004C7FE5 /* WordCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9178EA8F2BE24A99004C7FE5 /* WordCardModel.swift */; };
+			9178EA902BE24A99004C7FE5 /* WordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9178EA8F2BE24A99004C7FE5 /* WordCard.swift */; };
 		917AACD62CDA67DE00390EED /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917AACD52CDA67DE00390EED /* TextToSpeech.swift */; };
 		918145B02C9C36BA00D93222 /* UserProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918145AF2C9C36BA00D93222 /* UserProgress.swift */; };
 		918145B22C9C44E400D93222 /* RewardAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918145B12C9C44E400D93222 /* RewardAnimationView.swift */; };
@@ -49,10 +49,10 @@
 		91966F112B58049C0097C02F /* WrapView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91966F102B58049C0097C02F /* WrapView2.swift */; };
 		91A8E5A72B04E5EE003BBC5C /* WordLevelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A8E5A62B04E5EE003BBC5C /* WordLevelsView.swift */; };
 		91A8E5A92B04E92B003BBC5C /* year2CommonExceptionWords.strings in Resources */ = {isa = PBXBuildFile; fileRef = 91A8E5A82B04E92B003BBC5C /* year2CommonExceptionWords.strings */; };
-		91B6A9052AFCF533003E60A9 /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B6A9042AFCF533003E60A9 /* WordModel.swift */; };
+			91B6A9052AFCF533003E60A9 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B6A9042AFCF533003E60A9 /* Word.swift */; };
 		91B6A9072AFD0016003E60A9 /* year1CommonExceptionWords.strings in Resources */ = {isa = PBXBuildFile; fileRef = 91B6A9062AFD0016003E60A9 /* year1CommonExceptionWords.strings */; };
 		91B6A90B2AFD2729003E60A9 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B6A90A2AFD2729003E60A9 /* MenuItem.swift */; };
-		91B8E3CD2B5A854100C989A2 /* SoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B8E3CC2B5A854100C989A2 /* SoundModel.swift */; };
+			91B8E3CD2B5A854100C989A2 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B8E3CC2B5A854100C989A2 /* Sound.swift */; };
 		91C1B2AA2D37CA580043735D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91C1B2A92D37CA580043735D /* LaunchScreen.storyboard */; };
 		91EB18482B59425B00D27696 /* year3And4CommonExceptionWords.strings in Resources */ = {isa = PBXBuildFile; fileRef = 91EB18472B59425B00D27696 /* year3And4CommonExceptionWords.strings */; };
 		91EB184A2B59426700D27696 /* year5And6CommonExceptionWords.strings in Resources */ = {isa = PBXBuildFile; fileRef = 91EB18492B59426700D27696 /* year5And6CommonExceptionWords.strings */; };
@@ -109,7 +109,7 @@
 		917612E12AEAA646006D3718 /* WhatsOnTheTrayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsOnTheTrayView.swift; sourceTree = "<group>"; };
 		917612E52AEAA67A006D3718 /* WordSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchView.swift; sourceTree = "<group>"; };
 		917612F12AEBD809006D3718 /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
-		9178EA8F2BE24A99004C7FE5 /* WordCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCardModel.swift; sourceTree = "<group>"; };
+			9178EA8F2BE24A99004C7FE5 /* WordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCard.swift; sourceTree = "<group>"; };
 		917AACD52CDA67DE00390EED /* TextToSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 		918145AF2C9C36BA00D93222 /* UserProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProgress.swift; sourceTree = "<group>"; };
 		918145B12C9C44E400D93222 /* RewardAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardAnimationView.swift; sourceTree = "<group>"; };
@@ -122,10 +122,10 @@
 		91966F102B58049C0097C02F /* WrapView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapView2.swift; sourceTree = "<group>"; };
 		91A8E5A62B04E5EE003BBC5C /* WordLevelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordLevelsView.swift; sourceTree = "<group>"; };
 		91A8E5A82B04E92B003BBC5C /* year2CommonExceptionWords.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = year2CommonExceptionWords.strings; sourceTree = "<group>"; };
-		91B6A9042AFCF533003E60A9 /* WordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
+			91B6A9042AFCF533003E60A9 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		91B6A9062AFD0016003E60A9 /* year1CommonExceptionWords.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = year1CommonExceptionWords.strings; sourceTree = "<group>"; };
 		91B6A90A2AFD2729003E60A9 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
-		91B8E3CC2B5A854100C989A2 /* SoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundModel.swift; sourceTree = "<group>"; };
+			91B8E3CC2B5A854100C989A2 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		91C1B2A92D37CA580043735D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91D6AA352D368FC30034F2F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91EB18472B59425B00D27696 /* year3And4CommonExceptionWords.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = year3And4CommonExceptionWords.strings; sourceTree = "<group>"; };
@@ -280,12 +280,11 @@
 			isa = PBXGroup;
 			children = (
 				917612D22AEA864B006D3718 /* wie.xcdatamodeld */,
-				91B6A9042AFCF533003E60A9 /* WordModel.swift */,
-				9178EA8F2BE24A99004C7FE5 /* WordCardModel.swift */,
+							91B6A9042AFCF533003E60A9 /* Word.swift */,
+							9178EA8F2BE24A99004C7FE5 /* WordCard.swift */,
 				914AB01A2B0CF1D000D25DD7 /* WordLevel.swift */,
-				91B8E3CC2B5A854100C989A2 /* SoundModel.swift */,
+							91B8E3CC2B5A854100C989A2 /* Sound.swift */,
 				918145AF2C9C36BA00D93222 /* UserProgress.swift */,
-				917AACD52CDA67DE00390EED /* TextToSpeech.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -337,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				91FF10012ED1F50000A1A1A1 /* AudioPlayerService.swift */,
+				917AACD52CDA67DE00390EED /* TextToSpeech.swift */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -500,17 +500,17 @@
 				91488CCC2B2C92FB00696F54 /* WrapView.swift in Sources */,
 				917AACD62CDA67DE00390EED /* TextToSpeech.swift in Sources */,
 				912591922BAC42E300B59151 /* CustomNavBarPreferenceKeys.swift in Sources */,
-				9178EA902BE24A99004C7FE5 /* WordCardModel.swift in Sources */,
+							9178EA902BE24A99004C7FE5 /* WordCard.swift in Sources */,
 				9128FA552B5552D800F2C303 /* WordView.swift in Sources */,
 				9128FA532B55519A00F2C303 /* WordGame.swift in Sources */,
 				911777572B5D4AB400066C71 /* LetterView.swift in Sources */,
 				916969942B0B7E6A00BCFF99 /* SearchBarView.swift in Sources */,
 				918A1D922B2CC8B2008C9D4C /* OrientationInfo.swift in Sources */,
-				91B6A9052AFCF533003E60A9 /* WordModel.swift in Sources */,
+							91B6A9052AFCF533003E60A9 /* Word.swift in Sources */,
 				913755742BA9CC8F00EA3DC9 /* CustomNavLinkView.swift in Sources */,
 				91F27C742CAECC470068F31D /* CustomButtonStyle.swift in Sources */,
 				918145B22C9C44E400D93222 /* RewardAnimationView.swift in Sources */,
-				91B8E3CD2B5A854100C989A2 /* SoundModel.swift in Sources */,
+							91B8E3CD2B5A854100C989A2 /* Sound.swift in Sources */,
 				9122BD102C9C529A00288AE9 /* MainView.swift in Sources */,
 				917612DB2AEA87E2006D3718 /* OnboardView.swift in Sources */,
 				913755702BA9CA2500EA3DC9 /* CustomNavView.swift in Sources */,

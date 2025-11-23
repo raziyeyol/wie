@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WordFlashCardView: View {
     
-    let word: WordModel
+    let word: Word
     let onPlayButtonTapped: () -> Void
     @ObservedObject var userProgress = UserProgress.shared
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -69,7 +69,7 @@ struct WordFlashCardView: View {
 struct WordFlashCardView_Previews: PreviewProvider {
     static var previews: some View {
         
-        WordFlashCardView(word: WordModel(fromString: "1, New Word")) {
+        WordFlashCardView(word: Word(fromString: "1, New Word")) {
             
         }
     }

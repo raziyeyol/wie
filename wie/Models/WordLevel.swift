@@ -15,13 +15,13 @@ class WordLevel: Identifiable, Equatable {
     let yearBand: String
     let difficulty: String
     let description: String
-    var wordlist: [WordModel]
+    var wordlist: [Word]
     
     init(name: String,
          yearBand: String = "",
          difficulty: String = "",
          description: String = "",
-         wordlist: [WordModel],
+         wordlist: [Word],
          remoteId: UUID? = nil) {
         self.name = name
         self.yearBand = yearBand

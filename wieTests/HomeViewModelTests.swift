@@ -26,27 +26,27 @@ final class HomeViewModelTests: XCTestCase {
         
         // Assert
         XCTAssertEqual(sut.currentWordLevel.name, secondLevel.name)
-        XCTAssertEqual(sut.currentWordModel.word, secondLevel.wordlist.first?.word)
+        XCTAssertEqual(sut.currentWord.word, secondLevel.wordlist.first?.word)
         XCTAssertFalse(sut.showWordsList)
     }
     
-    func testUpdateWordChangesCurrentWordModel() {
+    func testUpdateWordChangesCurrentWord() {
         // Arrange
         let sut = makeSUT()
-        let newWord = WordModel.stub(id: 99, word: "updated")
+        let newWord = Word.stub(id: 99, word: "updated")
         
         // Act
-        sut.updateWord(wordModel: newWord)
+        sut.updateWord(newWord)
         
         // Assert
-        XCTAssertEqual(sut.currentWordModel.word, newWord.word)
+        XCTAssertEqual(sut.currentWord.word, newWord.word)
     }
     
     func testNextButtonPressedReturnsNextWordWhenAvailable() {
         // Arrange
         let level = TestDataFactory.makeWordLevel(words: ["alpha", "beta", "gamma"])
         let sut = makeSUT(wordLevels: [level])
-        sut.currentWordModel = level.wordlist[0]
+        sut.currentWord = level.wordlist[0]
         
         // Act
         let nextWord = sut.nextButtonPressed(word: "alpha")
@@ -141,14 +141,14 @@ private extension HomeViewModelTests {
 
 enum TestDataFactory {
     static func makeWordLevel(name: String = "Test Level", words: [String] = ["alpha", "beta"]) -> WordLevel {
-        let models = words.enumerated().map { WordModel.stub(id: $0.offset, word: $0.element) }
+        let models = words.enumerated().map { Word.stub(id: $0.offset, word: $0.element) }
         return WordLevel(name: name, wordlist: models)
     }
 }
 
-private extension WordModel {
-    static func stub(id: Int, word: String) -> WordModel {
-        WordModel(fromString: "\(id), \(word)")
+private extension Word {
+    static func stub(id: Int, word: String) -> Word {
+        Word(fromString: "\(id), \(word)")
     }
 }
 

@@ -11,7 +11,7 @@ import Foundation
 import AVFoundation
 
 class MakeAWordViewModel: ObservableObject {
-    @Published var wordList: [WordModel]
+    @Published var wordList: [Word]
     @Published var currentIndex: Int
     @Published var currentWord: String = ""
     @Published var targetWord: String
@@ -26,7 +26,7 @@ class MakeAWordViewModel: ObservableObject {
     // Audio player pool
     private var audioPlayers: [String: AVAudioPlayer] = [:]
     
-    init(wordList: [WordModel], currentIndex: Int) {
+    init(wordList: [Word], currentIndex: Int) {
         self.wordList = wordList
         self.currentIndex = currentIndex
         self.targetWord = wordList[currentIndex].word
@@ -389,26 +389,19 @@ extension Array {
 struct MakeAWordWithLetters_Previews: PreviewProvider {
     static var previews: some View {
         let sampleWords = ["accommodate", "rhythm", "necessary"].enumerated().map {
-            WordModel(id: $0.offset, word: $0.element)
+            Word(id: $0.offset, word: $0.element)
         }
         let viewModel = MakeAWordViewModel(wordList: sampleWords, currentIndex: 0)
         
         
-        Group {
+      
             
             MakeAWordWithLetters(viewModel: viewModel)
             
                 .environmentObject(UserProgress.shared)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 15 Pro Max"))
-                .previewDisplayName("iPhone 15 Pro Max")
+                
             
             
-            MakeAWordWithLetters(viewModel: viewModel)
-            
-                .environmentObject(UserProgress.shared)
-                .previewDevice(PreviewDevice(rawValue: "iPad (10th generation)"))
-                .previewDisplayName("iPad (10th generation)")
-            
-        }
+         
     }
 }

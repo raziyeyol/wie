@@ -13,10 +13,10 @@ class HomeViewModel: ObservableObject {
     @Published var wordLevels: [WordLevel]
     @Published var searchText: String = "Search by name"
     @Published var currentWordLevel: WordLevel
-    @Published var currentWordModel: WordModel
+    @Published var currentWord: Word
     @Published var showWordsList: Bool = false
     
-    private static let placeholderWord = WordModel(id: 0, word: "")
+    private static let placeholderWord = Word(id: 0, word: "")
     private let wordRepository: WordRepository
     private let audioService: AudioPlaying
     private let wordSearchGenerator: WordSearchGenerating
@@ -32,11 +32,11 @@ class HomeViewModel: ObservableObject {
         if let initialLevels = initialWordLevels, let firstLevel = initialLevels.first {
             self.wordLevels = initialLevels
             self.currentWordLevel = firstLevel
-            self.currentWordModel = firstLevel.wordlist.first ?? Self.placeholderWord
+            self.currentWord = firstLevel.wordlist.first ?? Self.placeholderWord
         } else {
             self.wordLevels = []
             self.currentWordLevel = WordLevel(name: "Loading", wordlist: [])
-            self.currentWordModel = Self.placeholderWord
+            self.currentWord = Self.placeholderWord
             Task {
                 await loadWordLevels()
             }
@@ -51,7 +51,7 @@ class HomeViewModel: ObservableObject {
             if wordLevels.isEmpty {
                 wordLevels = []
                 currentWordLevel = WordLevel(name: "Year 1", wordlist: [])
-                currentWordModel = Self.placeholderWord
+                currentWord = Self.placeholderWord
             }
         }
     }
@@ -60,7 +60,7 @@ class HomeViewModel: ObservableObject {
         guard let firstLevel = levels.first else { return }
         wordLevels = levels
         currentWordLevel = firstLevel
-        currentWordModel = firstLevel.wordlist.first ?? Self.placeholderWord
+        currentWord = firstLevel.wordlist.first ?? Self.placeholderWord
     }
     
     func toogleWordsList() {
@@ -72,13 +72,13 @@ class HomeViewModel: ObservableObject {
     func showNextSet(wordLevel: WordLevel) {
         withAnimation(.easeInOut) {
             currentWordLevel = wordLevel
-            currentWordModel = wordLevel.wordlist.first ?? Self.placeholderWord
+            currentWord = wordLevel.wordlist.first ?? Self.placeholderWord
             showWordsList = false
         }
     }
     
-    func updateWord(wordModel: WordModel) {
-        currentWordModel = wordModel
+    func updateWord(_ word: Word) {
+        currentWord = word
     }
     
     func nextButtonPressed(word: String) -> String? {

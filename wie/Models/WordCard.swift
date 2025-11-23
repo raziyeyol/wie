@@ -1,5 +1,5 @@
 //
-//  WordCardModel.swift
+//  WordCard.swift
 //  wie
 //
 //  Created by raziye yolasigmazoglu on 01/05/2024.
@@ -7,18 +7,18 @@
 
 import Foundation
 
-class WordCardModel: Identifiable, Equatable {
+class WordCard: Identifiable, Equatable {
     
     let id = UUID().uuidString
-    let word: WordModel
+    let word: Word
     let status: Status
     
-    init(word: WordModel, status: Status) {
+    init(word: Word, status: Status) {
         self.word = word
         self.status = status
     }
     
-    static func == (lhs: WordCardModel, rhs: WordCardModel) -> Bool {
+    static func == (lhs: WordCard, rhs: WordCard) -> Bool {
         lhs.id == rhs.id
     }
 }

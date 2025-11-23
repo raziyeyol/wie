@@ -16,7 +16,7 @@ struct WordSearchView: View {
     @State private var showReward = false
     @State private var hasAwardedReward = false
     @State private var foundWords: [String] = []
-    @State private var tray: [WordModel] = []
+    @State private var tray: [Word] = []
     @State private var isLong = false
     @State private var showConfetti = false
   
@@ -151,21 +151,13 @@ struct WordSearchView: View {
 struct WordSearchView_Previews: PreviewProvider {
     static var previews: some View {
         
-        Group {
+     
             
             WordSearchView()
                 .environmentObject(HomeViewModel())
                 .environmentObject(UserProgress.shared)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 15 Pro Max"))
-                .previewDisplayName("iPhone 15 Pro Max")
+           
             
-            
-            WordSearchView()
-                .environmentObject(HomeViewModel())
-                .environmentObject(UserProgress.shared)
-                .previewDevice(PreviewDevice(rawValue: "iPad (10th generation)"))
-                .previewDisplayName("iPad (10th generation)")
-            
-        }
+       
     }
 }

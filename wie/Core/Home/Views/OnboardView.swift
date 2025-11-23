@@ -134,19 +134,13 @@ struct OnboardView: View {
 
 struct Previews_OnboardView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            OnboardView()
-                .environmentObject(HomeViewModel())
-                .environmentObject(UserProgress.shared)
-                .previewDevice(PreviewDevice(rawValue: "iPhone 15 Pro Max"))
-                .previewDisplayName("iPhone 15 Pro Max")
 
             OnboardView()
                 .environmentObject(HomeViewModel())
                 .environmentObject(UserProgress.shared)
-                .previewDevice(PreviewDevice(rawValue: "iPad (10th generation)"))
-                .previewDisplayName("iPad (10th generation)")
-        }
+               
+
+       
     }
 }
 
