@@ -43,10 +43,4 @@ public class WordLevelsController : ControllerBase
         return words.Count == 0 ? NotFound() : Ok(words);
     }
 
-    [HttpPost]
-    public async Task<ActionResult<Guid>> CreateLevel([FromBody] CreateWordLevelRequest request, CancellationToken cancellationToken)
-    {
-        var id = await _wordLevelService.CreateWordLevelAsync(request, cancellationToken);
-        return CreatedAtAction(nameof(GetLevel), new { id }, new { id });
-    }
 }

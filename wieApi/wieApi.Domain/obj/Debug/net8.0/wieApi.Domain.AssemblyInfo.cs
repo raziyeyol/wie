@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("wieApi.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+700f910633cc6f94864eb54b5ff5912c469e868b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6bca12c7ef348ffcfea9021f97f4985d6cb72a48")]
 [assembly: System.Reflection.AssemblyProductAttribute("wieApi.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("wieApi.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

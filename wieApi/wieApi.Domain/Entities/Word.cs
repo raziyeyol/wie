@@ -7,7 +7,6 @@ public class Word
     public string Text { get; set; } = string.Empty;
     public string? AudioKey { get; set; }
     public int SortOrder { get; set; }
-    public string[] Tags { get; set; } = Array.Empty<string>();
 
     public WordLevel? Level { get; set; }
 }

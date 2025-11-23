@@ -24,8 +24,6 @@ public class WieDbContext : DbContext
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Name).HasMaxLength(100);
-            builder.Property(x => x.YearBand).HasMaxLength(50);
-            builder.Property(x => x.Difficulty).HasMaxLength(50);
             builder.Property(x => x.Description).HasMaxLength(500);
 
             builder.HasMany(x => x.Words)
@@ -34,23 +32,11 @@ public class WieDbContext : DbContext
                 .OnDelete(DeleteBehavior.Cascade);
         });
 
-        var stringArrayComparer = new ValueComparer<string[]>(
-            (left, right) => left!.SequenceEqual(right!),
-            value => value.Aggregate(0, (hash, item) => HashCode.Combine(hash, item.GetHashCode(StringComparison.OrdinalIgnoreCase))),
-            value => value.ToArray());
-
         modelBuilder.Entity<Word>(builder =>
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Text).HasMaxLength(100).IsRequired();
             builder.Property(x => x.SortOrder).HasDefaultValue(0);
-            builder.Property(x => x.Tags)
-                .HasConversion(
-                    v => string.Join(';', v ?? Array.Empty<string>()),
-                    v => string.IsNullOrWhiteSpace(v)
-                        ? Array.Empty<string>()
-                        : v.Split(';', StringSplitOptions.RemoveEmptyEntries))
-                .Metadata.SetValueComparer(stringArrayComparer);
         });
 
         modelBuilder.Entity<User>(builder =>

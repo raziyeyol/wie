@@ -5,5 +5,4 @@ public record WordDto(
     Guid LevelId,
     string Text,
     string? AudioKey,
-    int SortOrder,
-    IReadOnlyCollection<string> Tags);
+    int SortOrder);

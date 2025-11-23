@@ -6,8 +6,6 @@ private let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.sel
 struct RemoteWordLevel: Codable {
     let id: UUID
     let name: String
-    let yearBand: String
-    let difficulty: String
     let description: String
     let words: [RemoteWord]
 }
@@ -18,7 +16,6 @@ struct RemoteWord: Codable {
     let text: String
     let audioKey: String?
     let sortOrder: Int
-    let tags: [String]
 }
 
 final class WordCacheStore {

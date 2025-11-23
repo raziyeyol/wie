@@ -1,6 +1,5 @@
 using System.Net;
 using System.Text.Json;
-using FluentValidation;
 
 namespace wieApi.Web.Middleware;
 
@@ -20,19 +19,6 @@ public class ExceptionHandlingMiddleware
         try
         {
             await _next(context);
-        }
-        catch (ValidationException validationException)
-        {
-            context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-            context.Response.ContentType = "application/json";
-
-            var payload = new
-            {
-                title = "ValidationFailed",
-                errors = validationException.Errors.Select(e => new { e.PropertyName, e.ErrorMessage })
-            };
-
-            await context.Response.WriteAsync(JsonSerializer.Serialize(payload));
         }
         catch (Exception ex)
         {

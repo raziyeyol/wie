@@ -1,13 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "2TcNFL3WQH2Yfjr4aqMQSQmpTB++DKt+SdvyIb5uiSNimhy4arcuN14TUvD8Rf3XDPgUFcKCm/PKZ7Q15nm1wA==",
+  "dgSpecHash": "5UaQqHmUn05ISxzYNDI9xTdQIllPpAOSTYnUasR1KTuzuqlYHetdIgy/i9BxIyaN8bfKAO8KJfdUoGZmxwMDHA==",
   "success": true,
   "projectFilePath": "/Users/raziyeyolasigmazoglu/development/SwiftUI/wie/wieApi/wieApi.Application/wieApi.Application.csproj",
   "expectedPackageFiles": [
-    "/Users/raziyeyolasigmazoglu/.nuget/packages/fluentvalidation/12.1.0/fluentvalidation.12.1.0.nupkg.sha512",
-    "/Users/raziyeyolasigmazoglu/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/10.0.0/microsoft.extensions.dependencyinjection.abstractions.10.0.0.nupkg.sha512",
-    "/Users/raziyeyolasigmazoglu/.nuget/packages/microsoft.extensions.logging.abstractions/10.0.0/microsoft.extensions.logging.abstractions.10.0.0.nupkg.sha512",
-    "/Users/raziyeyolasigmazoglu/.nuget/packages/system.diagnostics.diagnosticsource/10.0.0/system.diagnostics.diagnosticsource.10.0.0.nupkg.sha512"
+    "/Users/raziyeyolasigmazoglu/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

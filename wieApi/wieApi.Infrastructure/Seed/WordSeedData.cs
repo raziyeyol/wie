@@ -8,8 +8,6 @@ internal static class WordSeedData
     [
         new WordSeedDescriptor(
             Name: "Year 1",
-            YearBand: "KS1",
-            Difficulty: "Foundational",
             Description: "Common exception words for Year 1 learners.",
             Words:
             [
@@ -19,8 +17,6 @@ internal static class WordSeedData
             ]),
         new WordSeedDescriptor(
             Name: "Year 2",
-            YearBand: "KS1",
-            Difficulty: "Intermediate",
             Description: "Common exception words for Year 2 learners.",
             Words:
             [
@@ -34,8 +30,6 @@ internal static class WordSeedData
             ]),
         new WordSeedDescriptor(
             Name: "Year 3 & Year 4",
-            YearBand: "KS2",
-            Difficulty: "Developing",
             Description: "Common exception words for Years 3 and 4.",
             Words:
             [
@@ -54,8 +48,6 @@ internal static class WordSeedData
             ]),
         new WordSeedDescriptor(
             Name: "Year 5 & Year 6",
-            YearBand: "KS2",
-            Difficulty: "Advanced",
             Description: "Extended exception words for Years 5 and 6.",
             Words:
             [
@@ -82,15 +74,12 @@ internal static class WordSeedData
             .Select(descriptor => new WordLevel
             {
                 Name = descriptor.Name,
-                YearBand = descriptor.YearBand,
-                Difficulty = descriptor.Difficulty,
                 Description = descriptor.Description,
                 Words = descriptor.Words
                     .Select((word, index) => new Word
                     {
                         Text = word,
-                        SortOrder = index + 1,
-                        Tags = new[] { descriptor.Difficulty, descriptor.YearBand }
+                        SortOrder = index + 1
                     })
                     .ToList()
             })
@@ -99,8 +88,6 @@ internal static class WordSeedData
 
     private sealed record WordSeedDescriptor(
         string Name,
-        string YearBand,
-        string Difficulty,
         string Description,
         IReadOnlyList<string> Words);
 }

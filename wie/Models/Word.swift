@@ -13,20 +13,17 @@ class Word: Identifiable, Codable {
     var levelId: UUID
     var word: String
     var audioKey: String?
-    var tags: [String]
     
     init(id: Int,
          uuid: UUID = UUID(),
          levelId: UUID = UUID(),
          word: String,
-         audioKey: String? = nil,
-         tags: [String] = []) {
+            audioKey: String? = nil) {
         self.id = id
         self.uuid = uuid
         self.levelId = levelId
         self.word = word
         self.audioKey = audioKey
-        self.tags = tags
     }
 
     required convenience init(fromString string: String) {
@@ -39,16 +36,14 @@ class Word: Identifiable, Codable {
                       uuid: UUID(),
                       levelId: UUID(),
                       word: parsedWord,
-                      audioKey: nil,
-                      tags: [])
+                      audioKey: nil)
         }
         else {
             self.init(id: 0,
                       uuid: UUID(),
                       levelId: UUID(),
                       word: "",
-                      audioKey: nil,
-                      tags: [])
+                      audioKey: nil)
         }
     }
 }
