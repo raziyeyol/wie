@@ -33,8 +33,14 @@ class WordSearchGame: ObservableObject {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     private var orderedHintPositions: [(word: String, position: IndexPath)] = []  // Store hints in order
+    private let hintDelay: TimeInterval = 30
+    private var hintCountdownTask: DispatchWorkItem?
     
     init() {}
+
+    deinit {
+        cancelHintCountdown()
+    }
     
     func setAimWords(_ words: [String], horizontalSizeClass: UserInterfaceSizeClass) {
         self.aimWords = words
@@ -49,6 +55,7 @@ class WordSearchGame: ObservableObject {
         foundWordSelections.removeAll()
         
         generateWordSearchGrid(rows: 13, columns: columns, words: aimWords)
+        startHintTimer()
     }
     
     func updateSelection(from position: CGPoint, in geometry: GeometryProxy) {
@@ -129,9 +136,7 @@ class WordSearchGame: ObservableObject {
         let letters = "abcdefghijklmnopqrstuvwxyz"
         var grid = Array(repeating: Array(repeating: Character(" "), count: columns), count: rows)
         
-        hintLetterPositions.removeAll()
-        orderedHintPositions.removeAll()  // Clear ordered hints
-        currentHintIndex = 0  // Reset index
+        resetHintStateForNewGrid()
         
         // Sort words by length (longest first)
         let sortedWords = words.sorted { $0.count > $1.count }
@@ -243,30 +248,22 @@ class WordSearchGame: ObservableObject {
             }
             
             clearSelection()
-            
-            // Show next hint after finding a word
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.currentHintIndex += 1  // Increment index before showing next hint
-                self.showNextHint()
-            }
+            clearHintHighlight()
+            refreshHintCursor()
+            scheduleHintCountdown()
         } else {
             clearSelection()
         }
     }
     
     private func showNextHint() {
-        // Find next unfound word
-        while currentHintIndex < orderedHintPositions.count {
-            let currentWord = orderedHintPositions[currentHintIndex].word
-            if !matchedWords.contains(currentWord) {
-                withAnimation(.easeInOut(duration: 0.6)) {
-                    self.hintLetterPositions = [self.orderedHintPositions[self.currentHintIndex].position]
-                    self.showHints = true
-                }
-                return
-            }
-            currentHintIndex += 1
+        refreshHintCursor()
+        guard currentHintIndex < orderedHintPositions.count else { return }
+        withAnimation(.easeInOut(duration: 0.6)) {
+            self.hintLetterPositions = [self.orderedHintPositions[self.currentHintIndex].position]
+            self.showHints = true
         }
+        scheduleHintCountdown()
     }
     
     func clearSelection() {
@@ -275,32 +272,46 @@ class WordSearchGame: ObservableObject {
     }
     
     func startHintTimer() {
-        self.showHints = false
-        hintLetterPositions.removeAll()
+        clearHintHighlight()
+        refreshHintCursor()
+        scheduleHintCountdown()
+    }
+
+    private func resetHintStateForNewGrid() {
+        cancelHintCountdown()
+        clearHintHighlight()
+        orderedHintPositions.removeAll()
         currentHintIndex = 0
-        
-        func showNextHint() {
-            // Find next unfound word
-            while currentHintIndex < orderedHintPositions.count {
-                let currentWord = orderedHintPositions[currentHintIndex].word
-                if !matchedWords.contains(currentWord) {
-                    // Found an unfound word, show its hint
-                    DispatchQueue.main.async {
-                        withAnimation(.easeInOut(duration: 0.6)) {
-                            self.hintLetterPositions = [self.orderedHintPositions[self.currentHintIndex].position]
-                            self.showHints = true
-                        }
-                    }
-                    return
-                }
-                currentHintIndex += 1
+    }
+
+    private func clearHintHighlight() {
+        hintLetterPositions.removeAll()
+        showHints = false
+    }
+
+    private func refreshHintCursor() {
+        if let nextIndex = orderedHintPositions.firstIndex(where: { !matchedWords.contains($0.word) }) {
+            currentHintIndex = nextIndex
+        } else {
+            currentHintIndex = orderedHintPositions.count
+        }
+    }
+
+    private func scheduleHintCountdown() {
+        cancelHintCountdown()
+        guard orderedHintPositions.contains(where: { !matchedWords.contains($0.word) }) else { return }
+        let task = DispatchWorkItem { [weak self] in
+            DispatchQueue.main.async {
+                self?.showNextHint()
             }
         }
-        
-        // Start showing hints after 30 seconds
-        DispatchQueue.main.asyncAfter(deadline: .now() + 30.0) {
-            showNextHint()
-        }
+        hintCountdownTask = task
+        DispatchQueue.main.asyncAfter(deadline: .now() + hintDelay, execute: task)
+    }
+
+    private func cancelHintCountdown() {
+        hintCountdownTask?.cancel()
+        hintCountdownTask = nil
     }
 }
 
