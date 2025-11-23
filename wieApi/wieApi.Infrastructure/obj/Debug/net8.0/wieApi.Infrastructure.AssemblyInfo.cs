@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("wieApi.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2749b1e0439e17fd19e0a633cb3278d7d41d6c6d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ecbd85928d918c34a866ab4e249903bd2fe4568")]
 [assembly: System.Reflection.AssemblyProductAttribute("wieApi.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("wieApi.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
