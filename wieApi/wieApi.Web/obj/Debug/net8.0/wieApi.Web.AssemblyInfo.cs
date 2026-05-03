@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("wieApi.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6f08a897ef8f99313451d2b799e6f17473c7e5f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("wieApi.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("wieApi.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
